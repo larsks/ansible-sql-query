@@ -1,0 +1,4 @@
+CREATE TABLE widgets (
+	id int,
+	description varchar(20),
+	price float);
