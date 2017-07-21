@@ -1,7 +1,11 @@
 #!/usr/bin/python
 
 from ansible.module_utils.basic import AnsibleModule
-import sqlalchemy
+
+try:
+    import sqlalchemy
+except ImportError:
+    sqlalchemy = None
 
 
 def main():
@@ -13,6 +17,9 @@ def main():
         ),
         supports_check_mode=True,
     )
+
+    if sqlalchemy is None:
+        module.fail_json(msg='sqlalchemy module is not available')
 
     engine = sqlalchemy.create_engine(module.params['connection'])
 
