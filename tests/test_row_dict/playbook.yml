@@ -1,0 +1,13 @@
+- name: test-row-dict
+  hosts: localhost
+  tasks:
+    - sql_query:
+        connection: "{{ testdb }}"
+        query: select id from testtable where id == 1
+      register: result
+
+    - debug:
+        var: result
+
+    - assert:
+        that: result.results[0].id == 1

@@ -1,0 +1,14 @@
+- name: test-row-list
+  hosts: localhost
+  tasks:
+    - sql_query:
+        connection: "{{ testdb }}"
+        query: select id from testtable where id == 1
+        rows_are_lists: true
+      register: result
+
+    - debug:
+        var: result
+
+    - assert:
+        that: result.results[0][0] == 1

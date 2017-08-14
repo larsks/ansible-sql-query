@@ -1,3 +1,0 @@
-insert into widgets (id, description, price) values (1, 'a gadget', 1.00);
-insert into widgets (id, description, price) values (2, 'a gizmo', 1.00);
-insert into widgets (id, description, price) values (3, 'a thingamajigger', 1.00);
